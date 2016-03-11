@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package streaming.service;
+package encheres.service;
 
-import java.io.Serializable;
 import org.springframework.data.repository.CrudRepository;
-import streaming.entity.Effacemoi;
+import encheres.entity.Enchere;
 
 /**
  *
  * @author tom
  */
-public interface EffacemoiCrudService extends CrudRepository<Effacemoi, Long>{
+public interface EnchereCrudService extends CrudRepository<Enchere, Long>{
     
 }
