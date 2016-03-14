@@ -107,6 +107,32 @@ public class Article implements Serializable {
         this.status = status;
     }
 
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public List<Enchere> getEncheres() {
+        return encheres;
+    }
+
+    public void setEncheres(List<Enchere> encheres) {
+        this.encheres = encheres;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+    
+    
+
     public Article() {
     }
 
@@ -149,5 +175,6 @@ public class Article implements Serializable {
     public String toString() {
         return "encheres.entity.Article[ id=" + id + " ]";
     }
+
     
 }

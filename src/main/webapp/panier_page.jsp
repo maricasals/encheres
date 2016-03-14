@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Panier Page</title>
-    <c:import url="_CSS.jsp"/>
+        <c:import url="_CSS.jsp"/>
     </head>
     <body>
         <c:import url="_MENU.jsp"/>
@@ -20,17 +20,21 @@
                 <table>
                     <tr>
                         <td>
-                            <label>Mes articles postées</label>
+                            <label>Mes annonces</label>
                         </td>
-                        <td>
-                            <label>Mes Encheres</label>
-                        </td>
+                            <c:forEach items="${mesArticles}" var="monArticle">
+                            - ${monArticle.nom} &nbsp;&nbsp;&nbsp; ${monArticle.categorie} &nbsp;&nbsp;&nbsp; ${monArticle.status} &nbsp;&nbsp;&nbsp; ${monArticle.prixDepart} &nbsp;&nbsp;&nbsp; ${monArticle.prixActuel} &nbsp;&nbsp;&nbsp;
+                            <br/>
+                            </c:forEach>
+                    <td>
+                        <label>Mes Encheres</label>
+                    </td>
                     </tr>
                     <tr>
                         <td>
-                            <c:forEach items="${mesArticles}" var="monArticle">
-                            - ${monArticle.nom_article} &nbsp;&nbsp;&nbsp; ${monArticle.categorie} &nbsp;&nbsp;&nbsp; ${monArticle.stat}
-                             <br/>
+                            <c:forEach items="${mesEncheres}" var="monEnchere">
+                                - ${monEnchere.nom} &nbsp;&nbsp;&nbsp; ${monEnchere.categorie} &nbsp;&nbsp;&nbsp; ${monEnchere.status}
+                                <br/>
                             </c:forEach>
                         </td>
                         <td>

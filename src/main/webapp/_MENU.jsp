@@ -12,13 +12,23 @@
         <div class="menu">
             <a href="home_page.jsp"><img src="Images/home.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <c:if test="${sessionScope.email==!null}">
-                <a href="home_page.jsp">Deconnection</a> &nbsp;&nbsp;&nbsp;
-            </c:if>
-            <c:if test="${sessionScope.email==null}">
-                <a href="connexion_page.jsp">Login</a> &nbsp;&nbsp;&nbsp;
-                <a href="login_page.jsp">New User</a> &nbsp;&nbsp;&nbsp;
-            </c:if>
+            <c:choose>
+                <c:when test="${sessionScope.email != null}">
+                    <a href="home_page.jsp">Desconnexion</a>
+                </c:when>
+                <c:otherwise>
+                    <a href="connexion_page.jsp">Login</a> &nbsp;&nbsp;&nbsp;
+                    <a href="login_page.jsp">New User</a> &nbsp;&nbsp;&nbsp;
+                </c:otherwise>
+            </c:choose>
+
+            <%--<c:if test="${sessionScope.email=!null}">--%>
+            <!--<a href="home_page.jsp">Deconnection</a> &nbsp;&nbsp;&nbsp;-->
+            <%--</c:if>--%>
+            <%--<c:if test="${sessionScope.email==null}">--%>
+            <!--<a href="connexion_page.jsp">Login</a> &nbsp;&nbsp;&nbsp;-->
+            <!--<a href="login_page.jsp">New User</a> &nbsp;&nbsp;&nbsp;-->
+            <%--</c:if>--%>
         </div>
     </body>
 </html>

@@ -30,15 +30,14 @@ public class ConnexionServlet extends AutowireServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Utilisateur u = userCrudService.finByEmailEtMdp(req.getParameter("email"), req.getParameter("mdp"));
         Utilisateur u1 = userCrudService.findByEmail(req.getParameter("email"));
 
         if (u1 != null){
-            if(req.getParameter("mdp")==u1.getMdp()){
+            if(u1.getMdp().equals(req.getParameter("mdp"))){
                 userCrudService.save(u1);
                 req.getRequestDispatcher("user_page.jsp").forward(req, resp);
                 return;
-            }if(req.getParameter("email")!=u1.getMdp()){
+            }if(!(u1.getMdp().equals(req.getParameter("mdp")))){
                 throw new RuntimeException("Attention! Le mot de pas choisi est incorrecte");
             }else{
                 throw new RuntimeException("Login pas trouvé, nouveau Utilisateur? Inscrivez vous!");

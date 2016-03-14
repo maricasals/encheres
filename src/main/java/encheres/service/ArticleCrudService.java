@@ -16,7 +16,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface ArticleCrudService extends CrudRepository<Article, Long>{
     
-//    public List<Article> findByCategorieIdOrderByNom(long categorieId);
+    public List<Article> findByUtilisateurOrderByDateVente(Utilisateur utilisateur);
 //    public List<Article> findByPrixOrderByPrixDepartDesc(long p);
 //    public List<Article> findByUtilisateurEmailOrderByEmail(String email);
     
