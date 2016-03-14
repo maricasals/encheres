@@ -37,6 +37,8 @@ public class AjouterArticleServlet extends AutowireServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Article article = new Article();
+        Utilisateur utilisateur = utilisateurCrudService.findOneByEmail((String) (req.getSession().getAttribute("email")));
+        System.out.println(utilisateur);
 
         //Ajouter article en base
         //Parametre date
@@ -51,14 +53,10 @@ public class AjouterArticleServlet extends AutowireServlet {
         article.setPrixDepart(Long.parseLong(req.getParameter("prixDepart")));
         article.setPrixActuel(Long.parseLong(req.getParameter("prixDepart")));
         article.setStatus(StatusVente.DISPO);
-        article.setUtilisateur(utilisateurCrudService.findByEmail((String) req.getSession().getAttribute("email")));
+        article.setUtilisateur(utilisateurCrudService.findOneByEmail((String) req.getSession().getAttribute("email")));
+        utilisateur.getListarticles().add(article);
         articleCrudService.save(article);
-
-        //Ajouter article dans mon panier
-        List<Article> mesArticles = articleCrudService.findByUtilisateurOrderByDateVente((Utilisateur) req.getSession().getAttribute("email"));
-        req.setAttribute("mesArticles", mesArticles);
-
-        resp.sendRedirect("panier_page.jsp");
+        resp.sendRedirect("list_articles.jsp");
 
     }
 

@@ -30,11 +30,12 @@ public class ConnexionServlet extends AutowireServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Utilisateur u1 = userCrudService.findByEmail(req.getParameter("email"));
+        Utilisateur u1 = userCrudService.findOneByEmail(req.getParameter("email"));
 
         if (u1 != null){
             if(u1.getMdp().equals(req.getParameter("mdp"))){
-                userCrudService.save(u1);
+                req.getSession().setAttribute("email", req.getParameter("email"));
+                req.getSession().setAttribute("mdp", req.getParameter("mdp"));
                 req.getRequestDispatcher("user_page.jsp").forward(req, resp);
                 return;
             }if(!(u1.getMdp().equals(req.getParameter("mdp")))){

@@ -29,13 +29,12 @@ public class LoginServlet extends AutowireServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Utilisateur u = userCrudService.findByEmail(req.getParameter("email"));
+        Utilisateur u = userCrudService.findOneByEmail(req.getParameter("email"));
         
             if(u == null){
                 Utilisateur uNew = new Utilisateur();
                 uNew.setEmail(req.getParameter("email"));
                 uNew.setMdp(req.getParameter("mdp"));
-                System.out.println("*************************************");
                 userCrudService.save(uNew);
                 req.getRequestDispatcher("user_page.jsp").forward(req, resp);
                 return;

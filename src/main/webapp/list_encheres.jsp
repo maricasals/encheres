@@ -16,7 +16,7 @@
     <body>
         <c:import url="_MENU.jsp"/>
         <div>
-            <form  action="article_servlet" method="post">
+            <form  action="encheres_list_servlet" method="get">
                 <table class="contenue">
                     <tr>
                         <td>Article</td>
@@ -25,29 +25,37 @@
                         <td>PrixActuel</td>
                         <td>Stat</td>
                         <td>Propieteur</td>
+                        <td></td>
                     </tr>
-                    <tr>
-                        <c:forEach items="${listAnnonces}" var="MonAnnonce">
+
+                    <c:forEach items="${listEncheres}" var="MonEncher">
+                        <tr>
                             <td>
-                                ${MonAnnonce.nom}
+                                ${MonEncher.nom}
                             </td>
                             <td>
-                                ${MonAnnonce.categorie}
+                                ${MonEncher.categorie}
                             </td>
                             <td>
-                                ${MonAnnonce.prixDepart}
+                                ${MonEncher.prixDepart}
                             </td>
                             <td>
-                                ${MonAnnonce.prixActuel}
+                                ${MonEncher.prixActuel}
                             </td>
                             <td>
-                                ${MonAnnonce.status}
+                                ${MonEncher.status}
                             </td>
                             <td>
-                                ${MonAnnonce.Utilisateur}
+                                ${MonEncher.Utilisateur}
                             </td>
-                        </c:forEach>
-                    </tr>
+                            <!--                            <td>
+                            <%--<c:if test="${MonEncher.status.DISPO}">--%>
+                                <a href="encheres_puja.jsp">ENCHERIR</a>
+                            <%--</c:if>--%>
+                        </td>-->
+                        </tr>
+                    </c:forEach>
+
                 </table>
             </form>
         </div>

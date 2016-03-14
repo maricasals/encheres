@@ -6,6 +6,7 @@
 package encheres.service;
 
 import encheres.entity.Categorie;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,10 +15,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CategorieService {
-    
-    public void findCaategorie(Categorie categorie){
-//        for (int i = 1; i < req.getParameter("categorie").length(); i++) {
-//            if (i==1) {
+
+//    public String findCategorie(Categorie categorie, List<Categorie> listCategorie) {
+
+//        for (Categorie c : listCategorie) {
+//            if (categorie. ==1) {
 //                c = "Vehicules";
 //            }
 //            if (i==1) {
@@ -33,7 +35,7 @@ public class CategorieService {
 //                c = "Autre";
 //            }
 //        }
-    }
+//        return;
+//    }
 
-    
 }

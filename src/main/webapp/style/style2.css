@@ -24,6 +24,15 @@ and open the template in the editor.
     border-radius: 30px;
 }
 
+.menu_2{
+    text-align: left;
+    font-size: 15px;
+    color: green;
+    font-style: normal;
+    font-weight: normal;
+    font-family: monospace;
+    
+}
 .contenue{
     font-size: medium;
     font-style: normal;

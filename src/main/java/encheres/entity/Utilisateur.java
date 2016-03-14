@@ -62,6 +62,24 @@ public class Utilisateur implements Serializable {
         this.mdp = mdp;
     }
 
+    public List<Article> getListarticles() {
+        return listarticles;
+    }
+
+    public void setListarticles(List<Article> listarticles) {
+        this.listarticles = listarticles;
+    }
+
+    public List<Enchere> getEncheres() {
+        return encheres;
+    }
+
+    public void setEncheres(List<Enchere> encheres) {
+        this.encheres = encheres;
+    }
+    
+    
+
     public Utilisateur() {
     }
 
